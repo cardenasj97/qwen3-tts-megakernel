@@ -1,0 +1,8 @@
+torch>=2.4.0
+pipecat-ai[silero]
+websockets
+sounddevice
+numpy
+loguru
+protobuf
+openai
