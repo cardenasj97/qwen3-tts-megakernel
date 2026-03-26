@@ -176,4 +176,4 @@ The voice pipeline works end-to-end — mic to speaker, multiple conversation tu
 
 The main gap is performance: TTFC (140ms) and RTF (1.14) both miss their targets. This is entirely due to `code_predictor.generate()` eating ~90ms per step — the megakernel itself is not the bottleneck. The optimization path is clear (manual decode loop → torch.compile → CUDA graphs) but wasn't implemented in this iteration.
 
-Other rough edges: audio is buffered rather than streamed frame-by-frame, cold start is slow (~940ms), long utterances haven't been stress-tested, and there's no mid-generation cancellation.
+Audio is buffered rather than streamed frame-by-frame — a deliberate choice given the current per-frame cost (see [On streaming](#on-streaming) above). Cold start is slow (~940ms), long utterances haven't been stress-tested, and there's no mid-generation cancellation.
