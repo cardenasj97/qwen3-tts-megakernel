@@ -1,0 +1,11 @@
+__pycache__/
+*.pyc
+*.pyo
+*.so
+*.o
+*.egg-info/
+dist/
+build/
+.DS_Store
+.claude/
+*.lock
